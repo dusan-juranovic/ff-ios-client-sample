@@ -27,6 +27,7 @@ enum FeatureName: String, Codable {
 }
 
 class CDModule: FeatureCardRepresentable {
+	var id: Int
 	var featureImageName: String
 	var featureName: FeatureName
 	var featureDescription: String
@@ -36,6 +37,7 @@ class CDModule: FeatureCardRepresentable {
 	var hasRibbon: Bool
 	
 	init() {
+		self.id = 5
 		self.featureImageName = "cd"
 		self.featureName = .Delivery
 		self.featureDescription = ""
@@ -47,6 +49,7 @@ class CDModule: FeatureCardRepresentable {
 }
 
 class CVModule: FeatureCardRepresentable {
+	var id: Int
 	var featureImageName: String
 	var featureName: FeatureName
 	var featureDescription: String
@@ -56,6 +59,7 @@ class CVModule: FeatureCardRepresentable {
 	var hasRibbon: Bool
 	
 	init() {
+		self.id = 0
 		self.featureImageName = "cv"
 		self.featureName = .Verification
 		self.featureDescription = "Deploy in peace, verify activities that take place in the system. Identify risk early."
@@ -67,6 +71,7 @@ class CVModule: FeatureCardRepresentable {
 }
 
 class CIModule: FeatureCardRepresentable {
+	var id: Int
 	var featureImageName: String
 	var featureName: FeatureName
 	var featureDescription: String
@@ -76,6 +81,7 @@ class CIModule: FeatureCardRepresentable {
 	var hasRibbon: Bool
 	
 	init() {
+		self.id = 1
 		self.featureImageName = "ci"
 		self.featureName = .Integration
 		self.featureDescription = "Commit, build, and test your code at a whole new level."
@@ -87,6 +93,7 @@ class CIModule: FeatureCardRepresentable {
 }
 
 class CEModule: FeatureCardRepresentable {
+	var id: Int
 	var featureImageName: String
 	var featureName: FeatureName
 	var featureDescription: String
@@ -96,6 +103,7 @@ class CEModule: FeatureCardRepresentable {
 	var hasRibbon: Bool
 	
 	init() {
+		self.id = 2
 		self.featureImageName = "ce"
 		self.featureName = .Efficiency
 		self.featureDescription = "Efficiency Spot and quickly debug inefficiencies and optimize them to reduce costs."
@@ -107,6 +115,7 @@ class CEModule: FeatureCardRepresentable {
 }
 
 class CFModule: FeatureCardRepresentable {
+	var id: Int
 	var featureImageName: String
 	var featureName: FeatureName
 	var featureDescription: String
@@ -116,6 +125,7 @@ class CFModule: FeatureCardRepresentable {
 	var hasRibbon: Bool
 	
 	init() {
+		self.id = 3
 		self.featureImageName = "cf"
 		self.featureName = .Features
 		self.featureDescription = "Decouple release from deployment and rollout features safely and quickly."

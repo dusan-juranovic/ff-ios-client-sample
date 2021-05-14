@@ -30,7 +30,9 @@ class FeatureViewController: UIViewController {
 		if WCSession.isSupported() {
 			let session = WCSession.default
 			session.delegate = self
-			session.activate()
+			if session.activationState != .activated {
+				session.activate()
+			}
 		}
         
         self.navigationController?.navigationBar.tintColor = .white
@@ -369,5 +371,38 @@ extension FeatureViewController: WCSessionDelegate {
 	func sessionDidDeactivate(_ session: WCSession) {
 		//For protocol conformance only
 	}
-	
+	func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
+		var removedAtRow: Int = 0
+		switch message.keys.first {
+			case "Verification":
+				let available = (message["Verification"] as! [String:Any])["Available"] as! Bool
+				let card = CVModule()
+				card.available = !available
+				removedAtRow = card.id
+				removeCard(card)
+			case "Integration":
+				let available = (message["Integration"] as! [String:Any])["Available"] as! Bool
+				let card = CIModule()
+				card.available = !available
+				removedAtRow = card.id
+				removeCard(card)
+			case "Features":
+				let available = (message["Features"] as! [String:Any])["Available"] as! Bool
+				let card = CFModule()
+				card.available = !available
+				removedAtRow = card.id
+				removeCard(card)
+			case "Efficiency":
+				let available = (message["Efficiency"] as! [String:Any])["Available"] as! Bool
+				let card = CEModule()
+				card.available = !available
+				removedAtRow = card.id
+				removeCard(card)
+			default: print("Fuck it!!!")
+		}
+		DispatchQueue.main.async {
+			self.collectionView.reloadData()
+		}
+		replyHandler(["Row":removedAtRow])
+	}
 }

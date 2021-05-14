@@ -27,6 +27,7 @@ enum FeatureName: String {
 }
 
 class Module: Equatable {
+	var id: Int
 	var featureImageName: String
 	var featureName: FeatureName
 	var featureDescription: String
@@ -35,7 +36,8 @@ class Module: Equatable {
 	var available: Bool
 	var hasRibbon: Bool
 	
-	init(featureImageName: String, featureName: FeatureName, featureDescription: String, featureTrialPeriod: Int, enabled: Bool, available: Bool, hasRibbon: Bool) {
+	init(id: Int, featureImageName: String, featureName: FeatureName, featureDescription: String, featureTrialPeriod: Int, enabled: Bool, available: Bool, hasRibbon: Bool) {
+		self.id = id
 		self.featureImageName = featureImageName
 		self.featureName = featureName
 		self.featureDescription = featureDescription
@@ -46,6 +48,7 @@ class Module: Equatable {
 	}
 	
 	init(dictionary: [String:Any]) {
+		self.id = dictionary["id"] as! Int
 		self.featureImageName = dictionary["featureImageName"] as! String
 		self.featureName = FeatureName(rawValue:dictionary["featureName"] as! String) ?? .Delivery
 		self.featureDescription = dictionary["featureDescription"] as! String
@@ -53,7 +56,6 @@ class Module: Equatable {
 		self.enabled = dictionary["enabled"] as! Bool
 		self.available = dictionary["available"] as! Bool
 		self.hasRibbon = dictionary["hasRibbon"] as! Bool
-		
 	}
 	
 	var trialPeriod: String {
@@ -61,7 +63,9 @@ class Module: Equatable {
 	}
 	
 	static func ==(lhs: Module, rhs:Module) -> Bool {
-		return lhs.available == rhs.available &&
+		return
+			lhs.id == rhs.id &&
+			lhs.available == rhs.available &&
 			lhs.enabled == rhs.enabled &&
 			lhs.hasRibbon == rhs.hasRibbon &&
 			lhs.featureTrialPeriod == rhs.featureTrialPeriod

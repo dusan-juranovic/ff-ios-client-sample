@@ -14,41 +14,45 @@
                         <table alignment="left" id="MeZ-Gu-ziK">
                             <items>
                                 <tableRow identifier="ModuleRow" id="46j-ex-mEX" customClass="ModuleRowController" customModule="Watch_Extension">
-                                    <group key="rootItem" width="1" height="0.0" alignment="left" contentMode="scaleAspectFill" spacing="2" id="IZC-B8-7sx">
+                                    <group key="rootItem" width="1" alignment="left" spacing="2" id="IZC-B8-7sx">
                                         <items>
-                                            <imageView width="30" height="30" alignment="right" image="new" id="8Ws-ko-nzy"/>
-                                            <group alignment="left" id="FLd-Qq-vMn">
+                                            <group alignment="right" verticalAlignment="center" layout="overlap" id="I5U-jw-i6d">
                                                 <items>
-                                                    <group alignment="left" verticalAlignment="center" layout="overlap" id="bRH-1f-ox7">
+                                                    <button alignment="right" verticalAlignment="center" id="c10-ue-Eyu">
+                                                        <group key="contentGroup" width="30" height="1" alignment="left" id="vo3-MG-QqS">
+                                                            <items>
+                                                                <label alignment="center" verticalAlignment="center" text="Enable" textAlignment="center" id="I4z-DS-vfM">
+                                                                    <fontDescription key="font" type="system" pointSize="5"/>
+                                                                </label>
+                                                            </items>
+                                                            <color key="backgroundColor" red="0.08235294118" green="0.81176470590000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </group>
+                                                        <connections>
+                                                            <action selector="enableButtonTapped" destination="46j-ex-mEX" id="0dn-qB-HUq"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView width="30" height="30" alignment="right" alpha="0.59999999999999998" image="new" id="8Ws-ko-nzy"/>
+                                                </items>
+                                            </group>
+                                            <group alignment="left" verticalAlignment="center" id="z5p-3d-ur8">
+                                                <items>
+                                                    <imageView width="30" height="30" alignment="left" verticalAlignment="center" image="ce_dark" contentMode="scaleAspectFit" id="ypp-2C-S9n"/>
+                                                    <group alignment="left" verticalAlignment="center" layout="vertical" spacing="4" id="IvN-09-s0D">
                                                         <items>
-                                                            <imageView width="30" height="30" alignment="center" verticalAlignment="center" image="ci_dark" id="hD2-7h-Pgp"/>
-                                                        </items>
-                                                    </group>
-                                                    <group alignment="left" verticalAlignment="center" id="Gon-XN-pc4">
-                                                        <items>
-                                                            <group width="110" alignment="left" layout="vertical" id="IvN-09-s0D">
+                                                            <group alignment="left" layout="vertical" spacing="0.0" id="Zb6-7e-Ayy">
                                                                 <items>
-                                                                    <label alignment="left" verticalAlignment="bottom" text="Trial" id="tSd-i2-Fkp">
-                                                                        <fontDescription key="font" type="system" pointSize="10"/>
+                                                                    <label alignment="left" text="CONTINUOUS" numberOfLines="0" id="uw4-VU-HuT">
+                                                                        <color key="textColor" white="0.76000000000000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <fontDescription key="font" type="system" pointSize="9"/>
                                                                     </label>
-                                                                    <label alignment="left" text="Description" numberOfLines="0" id="Aha-dA-4hg">
-                                                                        <fontDescription key="font" type="system" pointSize="8"/>
+                                                                    <label alignment="left" text="Label" id="ifP-gP-yMk">
+                                                                        <fontDescription key="font" type="system" weight="semibold" pointSize="11"/>
                                                                     </label>
                                                                 </items>
                                                             </group>
-                                                            <button alignment="right" verticalAlignment="center" id="c10-ue-Eyu">
-                                                                <group key="contentGroup" width="20" height="20" alignment="left" radius="10" id="vo3-MG-QqS">
-                                                                    <items>
-                                                                        <label alignment="center" verticalAlignment="center" text="Enable" textAlignment="center" id="I4z-DS-vfM">
-                                                                            <fontDescription key="font" type="system" pointSize="5"/>
-                                                                        </label>
-                                                                    </items>
-                                                                    <color key="backgroundColor" red="0.08235294118" green="0.81176470590000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                </group>
-                                                                <connections>
-                                                                    <action selector="enableButtonTapped" destination="46j-ex-mEX" id="0dn-qB-HUq"/>
-                                                                </connections>
-                                                            </button>
+                                                            <label alignment="left" verticalAlignment="bottom" text="Trial" id="tSd-i2-Fkp">
+                                                                <fontDescription key="font" type="system" pointSize="10"/>
+                                                            </label>
                                                         </items>
                                                     </group>
                                                 </items>
@@ -56,9 +60,9 @@
                                         </items>
                                     </group>
                                     <connections>
-                                        <outlet property="descriptionLabel" destination="Aha-dA-4hg" id="NOk-nQ-qFd"/>
+                                        <outlet property="accountImageView" destination="ypp-2C-S9n" id="XPx-bK-6JY"/>
+                                        <outlet property="accountNameLabel" destination="ifP-gP-yMk" id="SU6-Q1-N79"/>
                                         <outlet property="enableButton" destination="c10-ue-Eyu" id="xWx-5N-FwE"/>
-                                        <outlet property="moduleImage" destination="hD2-7h-Pgp" id="MCX-ux-i6W"/>
                                         <outlet property="newImage" destination="8Ws-ko-nzy" id="mex-C5-Uy2"/>
                                         <outlet property="trialLabel" destination="tSd-i2-Fkp" id="U8Q-rT-upV"/>
                                     </connections>
@@ -73,9 +77,23 @@
             </objects>
             <point key="canvasLocation" x="-37.695652173913039" y="344.55357142857144"/>
         </scene>
+        <!--DetailModule-->
+        <scene sceneID="WC3-3O-8w4">
+            <objects>
+                <controller identifier="DetailModule" id="3eP-ir-zBI" customClass="DetailModuleController" customModule="Watch_Extension">
+                    <items>
+                        <label alignment="left" text="Label" numberOfLines="0" id="eBA-c6-6mX"/>
+                    </items>
+                    <connections>
+                        <outlet property="detailLabel" destination="eBA-c6-6mX" id="vq9-G8-adp"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="174" y="345"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="ci_dark" width="68" height="68"/>
+        <image name="ce_dark" width="64" height="51"/>
         <image name="new" width="520" height="526"/>
     </resources>
 </document>

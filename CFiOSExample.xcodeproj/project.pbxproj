@@ -33,6 +33,7 @@
 		AFA35809264D67C800926259 /* ModuleRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA35808264D67C800926259 /* ModuleRowController.swift */; };
 		AFA3580D264D67F100926259 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA3580C264D67F100926259 /* Module.swift */; };
 		AFA3580F264D682700926259 /* AccountListInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA3580E264D682700926259 /* AccountListInterfaceController.swift */; };
+		AFC51AB8264E72C9004A1C25 /* DetailModuleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC51AB7264E72C9004A1C25 /* DetailModuleController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,7 @@
 		AFA35808264D67C800926259 /* ModuleRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleRowController.swift; sourceTree = "<group>"; };
 		AFA3580C264D67F100926259 /* Module.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
 		AFA3580E264D682700926259 /* AccountListInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountListInterfaceController.swift; sourceTree = "<group>"; };
+		AFC51AB7264E72C9004A1C25 /* DetailModuleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModuleController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +246,7 @@
 			children = (
 				AFA3580E264D682700926259 /* AccountListInterfaceController.swift */,
 				AFA35808264D67C800926259 /* ModuleRowController.swift */,
+				AFC51AB7264E72C9004A1C25 /* DetailModuleController.swift */,
 				AFA3580C264D67F100926259 /* Module.swift */,
 				AFA357F3264D65F800926259 /* ExtensionDelegate.swift */,
 				AFA357F5264D65F800926259 /* NotificationController.swift */,
@@ -413,6 +416,7 @@
 			files = (
 				AFA357F6264D65F800926259 /* NotificationController.swift in Sources */,
 				AFA35809264D67C800926259 /* ModuleRowController.swift in Sources */,
+				AFC51AB8264E72C9004A1C25 /* DetailModuleController.swift in Sources */,
 				AFA357F8264D65F800926259 /* ComplicationController.swift in Sources */,
 				AFA3580F264D682700926259 /* AccountListInterfaceController.swift in Sources */,
 				AFA357F4264D65F800926259 /* ExtensionDelegate.swift in Sources */,

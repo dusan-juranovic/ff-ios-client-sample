@@ -12,6 +12,9 @@ import Foundation
 class AccountListInterfaceController: WKInterfaceController {
 	@IBOutlet weak var tableView: WKInterfaceTable!
 	var modules: [Module] = []
+	lazy var reply: ((Int)->()) = {row in
+		self.tableView.removeRows(at: [row])
+	}
 	
 	override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -21,9 +24,16 @@ class AccountListInterfaceController: WKInterfaceController {
 	override func willActivate() {
 		if WCSession.isSupported() {
 			let session = WCSession.default
-			session.delegate = self
-			session.activate()
+			if session.activationState != .activated {
+				session.delegate = self
+				session.activate()
+			}
 		}
+	}
+	
+	override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
+		let details = modules[rowIndex].featureDescription
+		self.presentController(withName: "DetailModule", context: details)
 	}
 }
 
@@ -47,6 +57,7 @@ extension AccountListInterfaceController: WCSessionDelegate {
 		for index in 0..<tableView.numberOfRows {
 			guard let controller = tableView.rowController(at: index) as? ModuleRowController else {continue}
 			controller.module = modules[index]
+			controller.removeRowReply = reply
 		}
 	}
 }
