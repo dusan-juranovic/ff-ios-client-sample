@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WatchConnectivity
 import ff_ios_client_sdk
 
 class FeatureViewController: UIViewController {
@@ -25,6 +26,12 @@ class FeatureViewController: UIViewController {
 		super.viewDidLoad()
 		setupNeedHelpButton()
 		setupLayoutFlow()
+		
+		if WCSession.isSupported() {
+			let session = WCSession.default
+			session.delegate = self
+			session.activate()
+		}
         
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
@@ -51,6 +58,7 @@ class FeatureViewController: UIViewController {
 						case .onMessage(let messageObj):
 							print(messageObj?.event ?? "Message received")
 					}
+					self.sendMessageToWatch(self.availableFeatures.filter {$0.available})
 			}
 		}
 	}
@@ -274,6 +282,28 @@ class FeatureViewController: UIViewController {
 			}
 		}
 	}
+	
+	func sendMessageToWatch(_ features: [FeatureCardRepresentable]) {
+		var newFeatures: [[String:Any]?] = []
+		for feat in features {
+			switch feat.featureName {
+				case .Delivery: 	newFeatures.append(encode(feat as! CDModule))
+				case .Verification: newFeatures.append(encode(feat as! CVModule))
+				case .Integration: 	newFeatures.append(encode(feat as! CIModule))
+				case .Features: 	newFeatures.append(encode(feat as! CFModule))
+				case .Efficiency: 	newFeatures.append(encode(feat as! CEModule))
+			}
+		}
+		if WCSession.isSupported() {
+			WCSession.default.sendMessage(["Modules":newFeatures], replyHandler: nil)
+		}
+	}
+	
+	func encode<T:Codable>(_ module: T) -> [String:Any]? {
+		let data = try? JSONEncoder().encode(module)
+		let evalDict = try? JSONSerialization.jsonObject(with: data!, options: .fragmentsAllowed) as? [String:Any]
+		return evalDict
+	}
 }
 
 extension FeatureViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -327,4 +357,17 @@ extension FeatureViewController: UICollectionViewDelegateFlowLayout {
 //	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 //		return CGSize(width: self.collectionView.frame.size.width/2 - 20, height: self.collectionView.frame.size.width/2 + 20)
 //	}
+}
+
+extension FeatureViewController: WCSessionDelegate {
+	func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+		//For protocol conformance only
+	}
+	func sessionDidBecomeInactive(_ session: WCSession) {
+		//For protocol conformance only
+	}
+	func sessionDidDeactivate(_ session: WCSession) {
+		//For protocol conformance only
+	}
+	
 }

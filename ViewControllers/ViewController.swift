@@ -47,7 +47,7 @@ class ViewController: UIViewController {
 	
 	func authorizeWith(account: String, onCompletion:@escaping(Bool)->()) {
 		authorizedAccount = account
-		let apiKey = "YOUR_API_KEY"
+		let apiKey = "5d59cb10-66cb-405b-ab54-b4d48132f383"
 		let config = CfConfiguration.builder().setStreamEnabled(true).build()
 		let target = CfTarget.builder().setIdentifier(account).build()
 		CfClient.sharedInstance.initialize(apiKey: apiKey, configuration:config, target: target) { [weak self] result in

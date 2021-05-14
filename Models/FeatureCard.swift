@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol FeatureCardRepresentable {
+protocol FeatureCardRepresentable: Codable {
 	var featureImageName: String {get set}
 	var featureName: FeatureName {get set}
 	var featureDescription: String {get set}
@@ -18,7 +18,7 @@ protocol FeatureCardRepresentable {
 	var hasRibbon: Bool {get set}
 }
 
-enum FeatureName: String {
+enum FeatureName: String, Codable {
 	case Delivery
 	case Verification
 	case Integration
