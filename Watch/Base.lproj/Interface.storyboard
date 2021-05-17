@@ -19,10 +19,10 @@
                                             <group alignment="right" verticalAlignment="center" layout="overlap" id="I5U-jw-i6d">
                                                 <items>
                                                     <button alignment="right" verticalAlignment="center" id="c10-ue-Eyu">
-                                                        <group key="contentGroup" width="30" height="1" alignment="left" id="vo3-MG-QqS">
+                                                        <group key="contentGroup" width="30" height="1" alignment="left" radius="15" id="vo3-MG-QqS">
                                                             <items>
                                                                 <label alignment="center" verticalAlignment="center" text="Enable" textAlignment="center" id="I4z-DS-vfM">
-                                                                    <fontDescription key="font" type="system" pointSize="5"/>
+                                                                    <fontDescription key="font" type="system" pointSize="8"/>
                                                                 </label>
                                                             </items>
                                                             <color key="backgroundColor" red="0.08235294118" green="0.81176470590000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
